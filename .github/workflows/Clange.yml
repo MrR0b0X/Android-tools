@@ -14,7 +14,7 @@ jobs:
       - name: Install aria2
         run: sudo apt-get update && sudo apt-get install -y aria2
 
-      - name: Download Clang r563880c
+      - name: Download Clang r584948c
         run: |
           aria2c \
             -x 16 \
@@ -22,14 +22,14 @@ jobs:
             -k 1M \
             --summary-interval=1 \
             --console-log-level=notice \
-            https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/mirror-goog-main-llvm-toolchain-source/clang-r563880c.tar.gz \
-            -o clang-r563880c.tar.gz
+            https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/mirror-goog-main-llvm-toolchain-source/clang-r584948.tar.gz \
+            -o clang-r584948.tar.gz
 
       - name: Create Release and Upload
         uses: ncipollo/release-action@v1
         with:
-          tag: "clang-r563880c-${{ github.run_number }}"
-          name: "Clang r563880c #${{ github.run_number }}"
-          artifacts: "clang-r563880c.tar.gz"
+          tag: "clang-r584948c-${{ github.run_number }}"
+          name: "Clang r584948c #${{ github.run_number }}"
+          artifacts: "clang-r584948c.tar.gz"
           draft: false
           prerelease: false
